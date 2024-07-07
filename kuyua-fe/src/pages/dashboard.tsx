@@ -1,7 +1,6 @@
 import { Image } from "primereact/image";
 import { classNames } from "primereact/utils";
-import { useEffect, useState } from "react";
-import { fetchLocations } from "../services/api";
+import { useEffect } from "react";
 import { Location, Profiles } from "../types/location.type";
 import StatisticsSection from "../components/dashboard/StatisticsSection";
 import ChartsSection from "../components/dashboard/ChartSection";
