@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "name": "kuyua-fe",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "env": {
+    "REACT_APP_API_URL": "@react_app_api_url",
+    "REACT_APP_MAPBOX_TOKEN": "pk.eyJ1IjoiYWhtZWRtYWdkeTc3NzciLCJhIjoiY2x5N3Q3aWc1MDNtODJrc2ZoNWIyamEzZSJ9.na5s7DpbwC5E6bAQofF40g"
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
