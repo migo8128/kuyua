@@ -9,7 +9,7 @@ import {
   SortOptions,
 } from "../types/filter.types";
 import LocationsPaginator from "../components/locations/LocationPaginator";
-import ErrorBoundary from "../components/common/error-boundary";
+import ErrorBoundary from "../components/common/ErrorBoundary";
 import { NavLink } from "react-router-dom";
 
 type Params = PaginationOptions & SortOptions & SearchOptions;

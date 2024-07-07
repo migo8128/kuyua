@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { Location } from "../../types/location.type";
 import { SortOptions } from "../../types/filter.types";
 import { getClassNames } from "../../utils/getClassNames";
-import ErrorBoundary from "../common/error-boundary";
+import ErrorBoundary from "../common/ErrorBoundary";
 
 const rowClasses = "text-xs cursor-pointer";
 const headerClasses = "text-xs uppercase w-1rem";
