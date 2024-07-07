@@ -11,7 +11,7 @@
     }
   ],
   "env": {
-    "REACT_APP_API_URL": "@react_app_api_url",
+    "REACT_APP_API_URL": "https://kuyua-be.vercel.app/",
     "REACT_APP_MAPBOX_TOKEN": "pk.eyJ1IjoiYWhtZWRtYWdkeTc3NzciLCJhIjoiY2x5N3Q3aWc1MDNtODJrc2ZoNWIyamEzZSJ9.na5s7DpbwC5E6bAQofF40g"
   },
   "routes": [
