@@ -80,7 +80,7 @@ const Locations = () => {
         <header className="flex justify-content-between">
           <div className="flex gap-2 align-items-end">
             <NavLink to="/">
-              <Image src="/Kuyua-logo.png" width="250" loading="lazy" />
+              <Image src="/logo.png" width="250" loading="lazy" />
             </NavLink>
             <h2 className="text-600 font-light uppercase">All Locations</h2>
           </div>

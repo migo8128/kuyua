@@ -1,14 +1,14 @@
 import { Image } from "primereact/image";
 import { classNames } from "primereact/utils";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { fetchLocations } from "../services/api";
 import { Location, Profiles } from "../types/location.type";
+import { NavLink } from "react-router-dom";
+import { Button } from "primereact/button";
 import StatisticsSection from "../components/dashboard/StatisticsSection";
 import ChartsSection from "../components/dashboard/ChartSection";
 import MapSection from "../components/dashboard/MapSection";
 import ProfilesSection from "../components/dashboard/ProfilesSection";
-import { NavLink } from "react-router-dom";
-import { Button } from "primereact/button";
-import useFetch from "../hooks/useFetch";
 
 const Header = () => {
   const headerClasses = classNames("flex", "gap-2", "align-items-end");
@@ -17,7 +17,7 @@ const Header = () => {
     <header className="flex justify-content-between align-items-center">
       <div className={headerClasses}>
         <NavLink to="/">
-          <Image src="/Kuyua-logo.png" width="250" loading="lazy" />
+          <Image src="/logo.png" width="250" className="p-image" />
         </NavLink>
         <h2 className={classNames("text-600", "font-light", "uppercase")}>
           Dashboard
@@ -36,22 +36,15 @@ const Header = () => {
 };
 
 const Dashboard = () => {
+  const [locations, setLocations] = useState<Location[]>([]);
+  const [profiles, setProfiles] = useState<Profiles>([]);
+
   useEffect(() => {
-    document.title = "Kuyua Dashboard";
+    fetchLocations().then((data) => {
+      setLocations(data.features);
+      setProfiles(data.profiles);
+    });
   }, []);
-
-  const { data, error, loading } = useFetch<{
-    features: Location[];
-    total: number;
-    profiles: Profiles;
-  }>("/locations", { pageSize: 10000, page: 1, field: "", order: 1 });
-
-  const locations = data?.features || [];
-  const profiles = data?.profiles || [];
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
-
   const rowLayoutClassName = classNames(
     "grid",
     "flex",
