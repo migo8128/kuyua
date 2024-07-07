@@ -11,7 +11,7 @@ function getData() {
 }
 
 function DoughnutChart() {
-  const [options, setOptions] = useState<AgChartOptions>({
+  const [options] = useState<AgChartOptions>({
     background: { visible: false },
     data: getData(),
     title: {
