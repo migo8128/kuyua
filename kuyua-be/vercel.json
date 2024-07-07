@@ -1,16 +1,9 @@
 {
   "version": 2,
-  "name": "kuyua-be",
-  "builds": [
-    {
-      "src": "index.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.js"
-    }
-  ]
+  "builds": [{ "src": "src/index.js", "use": "@vercel/node" }],
+  "routes": [{ "src": "/locations", "dest": "src/index.js" }],
+  "env": {
+    "NODE_ENV": "production",
+    "PORT": 4000
+  }
 }
