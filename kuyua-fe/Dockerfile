@@ -15,7 +15,7 @@ ENV REACT_APP_MAPBOX_TOKEN=pk.eyJ1IjoiYWhtZWRtYWdkeTc3NzciLCJhIjoiY2x5N3Q3aWc1MD
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install --force
+RUN npm install
 
 # Copy the rest of the application code
 COPY . .
