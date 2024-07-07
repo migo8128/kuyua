@@ -4,6 +4,6 @@
   "routes": [{ "src": "/locations", "dest": "src/index.js" }],
   "env": {
     "NODE_ENV": "production",
-    "PORT": 4000
+    "PORT": "4000"
   }
 }
