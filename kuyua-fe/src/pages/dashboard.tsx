@@ -9,6 +9,7 @@ import StatisticsSection from "../components/dashboard/StatisticsSection";
 import ChartsSection from "../components/dashboard/ChartSection";
 import MapSection from "../components/dashboard/MapSection";
 import ProfilesSection from "../components/dashboard/ProfilesSection";
+import { FeatureCollection, Geometry, GeoJsonProperties } from "geojson";
 
 const Header = () => {
   const headerClasses = classNames("flex", "gap-2", "align-items-end");
@@ -40,7 +41,11 @@ const Dashboard = () => {
   const [profiles, setProfiles] = useState<Profiles>([]);
 
   useEffect(() => {
-    fetchLocations("/locations").then((data) => {
+    fetchLocations<
+      FeatureCollection<Geometry, GeoJsonProperties> & { total: number } & {
+        profiles: Profiles;
+      }
+    >("/locations").then((data) => {
       setLocations(data.features);
       setProfiles(data.profiles);
     });

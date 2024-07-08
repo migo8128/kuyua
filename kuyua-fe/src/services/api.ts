@@ -1,19 +1,13 @@
 import { FeatureCollection, Geometry, GeoJsonProperties } from "geojson";
 import { Profiles } from "../types/location.type";
 
-export const fetchLocations = async (
+export const fetchLocations = async <T>(
   path: string,
   params?: string
-): Promise<
-  FeatureCollection<Geometry, GeoJsonProperties> & { total: number } & {
-    profiles: Profiles;
-  }
-> => {
-  const response = await fetch(
-    `${process.env.REACT_APP_API_URL}${path}?${params}`
-  );
+): Promise<T> => {
+  const response = await fetch(`https://kuyua-be.vercel.app${path}?${params}`);
   if (!response.ok) {
-    throw new Error("Failed to fetch locations");
+    throw new Error("Failed to fetch data");
   }
   return response.json();
 };

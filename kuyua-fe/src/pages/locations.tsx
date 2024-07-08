@@ -11,6 +11,8 @@ import {
 import LocationsPaginator from "../components/locations/LocationPaginator";
 import ErrorBoundary from "../components/common/ErrorBoundary";
 import { NavLink } from "react-router-dom";
+import { FeatureCollection, Geometry, GeoJsonProperties } from "geojson";
+import { Profiles } from "../types/location.type";
 
 type Params = PaginationOptions & SortOptions & SearchOptions;
 
@@ -30,7 +32,11 @@ const fetchAndSetLocations = async (
   try {
     const searchParams = new URLSearchParams(params as any);
     setParams(params);
-    const data = await fetchLocations("/locations", searchParams.toString());
+    const data = await fetchLocations<
+      FeatureCollection<Geometry, GeoJsonProperties> & { total: number } & {
+        profiles: Profiles;
+      }
+    >("/locations", searchParams.toString());
 
     if (!data || !data.features) {
       console.error("Locations data is not available");
