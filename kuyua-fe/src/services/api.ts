@@ -8,7 +8,9 @@ export const fetchLocations = async (
     profiles: Profiles;
   }
 > => {
-  const response = await fetch(`http://localhost:4000/locations?${params}`);
+  const response = await fetch(
+    `${process.env.REACT_APP_API_URL}/locations?${params}`
+  );
   if (!response.ok) {
     throw new Error("Failed to fetch locations");
   }
