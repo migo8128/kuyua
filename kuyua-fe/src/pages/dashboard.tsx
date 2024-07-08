@@ -40,7 +40,7 @@ const Dashboard = () => {
   const [profiles, setProfiles] = useState<Profiles>([]);
 
   useEffect(() => {
-    fetchLocations().then((data) => {
+    fetchLocations("/locations").then((data) => {
       setLocations(data.features);
       setProfiles(data.profiles);
     });

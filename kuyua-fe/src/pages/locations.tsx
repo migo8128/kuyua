@@ -30,7 +30,7 @@ const fetchAndSetLocations = async (
   try {
     const searchParams = new URLSearchParams(params as any);
     setParams(params);
-    const data = await fetchLocations(searchParams.toString());
+    const data = await fetchLocations("/locations", searchParams.toString());
 
     if (!data || !data.features) {
       console.error("Locations data is not available");
